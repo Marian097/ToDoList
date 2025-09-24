@@ -1,0 +1,10 @@
+header {
+    width: 100%;
+    height: 10vh;
+    background-color:rgb(88, 187, 185);
+}
+
+.logo img {
+    width: 10%;
+    height: 100%
+}

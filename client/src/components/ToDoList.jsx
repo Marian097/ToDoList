@@ -1,17 +1,4 @@
-import { useState, useEffect } from "react";
-import { api } from "../api";
-
-export default function ToDoList({ onToggle, onDelete }) {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    async function load() {
-      const { data } = await api.get("/api/todos");
-      setTodos(data);
-    }
-    load();
-  }, []);
-
+export default function ToDoList({ todos, onToggle, onDelete, onUpdate }) {
   if (!todos.length) return <p style={{ opacity: 0.7 }}>Nimic de facut inca</p>;
 
   return (
@@ -42,6 +29,7 @@ export default function ToDoList({ onToggle, onDelete }) {
               {t.title}
             </span>
             <button onClick={() => onDelete(t.id)}>Șterge</button>
+            <button onClick={() => onUpdate(t)}>Modifică</button>
           </li>
         ))}
       </ul>
