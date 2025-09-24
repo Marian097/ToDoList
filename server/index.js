@@ -2,8 +2,19 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./db");
 
+const allowedOrigins = [
+  "https://marian097.github.io",
+  "https://marian097.github.io/ToDoList"
+];
+
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true); // pentru requesturi locale
+    if (allowedOrigins.includes(origin)) return cb(null, true);
+    return cb(new Error("Not allowed by CORS"));
+  }
+}));
 app.use(express.json());
 
 const PORT = 3001;
