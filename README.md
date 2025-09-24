@@ -2,7 +2,7 @@
 
 Demo live: 
 Frontend (GitHub Pages): https://marian097.github.io/ToDoList/
-Backend(Render): https://todolist-zuml.onrender.com
+Backend(Render): https://todolist-zuml.onrender.com/api/todos
 
 
 Tehnologii folosite: 
